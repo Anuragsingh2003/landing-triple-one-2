@@ -1,0 +1,641 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <!-- Google Analytics -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-CP3TBB1537"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-CP3TBB1537');
+  </script>
+
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <meta name="description" content="Tripple One Media Works – Full-stack Digital Marketing & Creative Agency in India"/>
+  <title>Tripple One Media Works | Digital Growth Partner</title>
+
+  <!-- Favicon -->
+  <link rel="icon" href="favicon.png"/>
+
+  <!-- Tailwind + Fonts -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Sen:wght@400;600;800&family=Gruppo&display=swap" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/remixicon@4.3.0/fonts/remixicon.css" rel="stylesheet"/>
+
+  <!-- Spline Viewer -->
+  <script type="module" src="https://unpkg.com/@splinetool/viewer@1.7.6/build/spline-viewer.js"></script>
+
+  <style>
+    body { 
+      font-family: 'Gruppo', sans-serif; 
+      background: linear-gradient(135deg, #0f0f23 0%, #1a1a2e 50%, #16213e 100%); 
+      color: #e0e7ff; 
+      overflow-x: hidden; 
+    }
+    h1, h2, h3 { font-family: 'Sen', sans-serif; }
+    .glass { 
+      background: rgba(26, 26, 46, 0.6);
+      backdrop-filter: blur(20px);
+      -webkit-backdrop-filter: blur(20px);
+      border: 1px solid rgba(59, 130, 246, 0.3);
+      box-shadow: 0 8px 32px rgba(0, 0, 0, 0.6), inset 0 1px 0 rgba(255, 255, 255, 0.1);
+    }
+    .glow-text { 
+      text-shadow: 0 0 20px rgba(59, 130, 246, 0.8), 0 0 40px rgba(59, 130, 246, 0.4); 
+    }
+    .neon-blue { color: #3b82f6; }
+    .neon-purple { color: #8b5cf6; }
+    .gradient-bg { 
+      background: linear-gradient(135deg, #0f0f23 0%, #1a1a2e 50%, #16213e 100%);
+      position: relative;
+    }
+    .gradient-bg::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: radial-gradient(circle at 20% 80%, rgba(59, 130, 246, 0.1) 0%, transparent 50%),
+                  radial-gradient(circle at 80% 20%, rgba(139, 92, 246, 0.1) 0%, transparent 50%);
+      pointer-events: none;
+    }
+    .nav-link:after { 
+      content: ''; 
+      position: absolute; 
+      width: 0; 
+      height: 2px; 
+      bottom: -6px; 
+      left: 0; 
+      background: linear-gradient(90deg, #3b82f6, #8b5cf6); 
+      transition: width .3s; 
+    }
+    .nav-link:hover:after { width: 100%; }
+    #mobile-gif { object-fit: cover; }
+    #logo, spline-viewer a[href*="spline.design"] { display: none !important; visibility: hidden !important; }
+    .mascot { 
+      will-change: transform; 
+      pointer-events: none; 
+      filter: drop-shadow(0 0 20px rgba(59, 130, 246, 0.5));
+    }
+    .floating-card {
+      animation: float 6s ease-in-out infinite;
+    }
+    @keyframes float {
+      0%, 100% { transform: translateY(0px); }
+      50% { transform: translateY(-20px); }
+    }
+    .btn-primary {
+      background: linear-gradient(135deg, #3b82f6 0%, #8b5cf6 100%);
+      border: none;
+      color: white;
+      transition: all 0.3s ease;
+    }
+    .btn-primary:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 10px 25px rgba(59, 130, 246, 0.4);
+    }
+    .section-divider {
+      height: 1px;
+      background: linear-gradient(90deg, transparent, #3b82f6, #8b5cf6, transparent);
+      margin: 4rem 0;
+    }
+  </style>
+</head>
+<body class="relative min-h-screen">
+
+  <!-- NAV -->
+  <nav class="fixed top-0 left-0 right-0 z-50 glass py-4">
+    <div class="container mx-auto px-6 flex justify-between items-center">
+      <div class="text-2xl font-bold neon-blue">Tripple One</div>
+      <div class="hidden lg:flex items-center space-x-10">
+        <a href="#" class="nav-link relative text-white hover:neon-blue transition">Home</a>
+        <a href="#services" class="nav-link relative text-white hover:neon-blue transition">Services</a>
+        <a href="#portfolio" class="nav-link relative text-white hover:neon-blue transition">Portfolio</a>
+        <a href="#about" class="nav-link relative text-white hover:neon-blue transition">About</a>
+        <a href="#contact" class="nav-link relative text-white hover:neon-blue transition">Contact</a>
+        <a href="#contact" class="ml-8 btn-primary px-8 py-3 rounded-full text-sm font-semibold">Let's Talk</a>
+      </div>
+      <button id="menu-toggle" class="lg:hidden text-3xl text-white"><i class="ri-menu-line"></i></button>
+    </div>
+  </nav>
+
+  <!-- MOBILE MENU -->
+  <div id="mobile-menu" class="fixed inset-0 bg-black/95 glass z-40 hidden flex-col justify-center items-center space-y-10 text-3xl">
+    <button id="close-menu" class="absolute top-8 right-8 text-4xl text-white"><i class="ri-close-line"></i></button>
+    <a href="#" class="hover:neon-blue transition">Home</a>
+    <a href="#services" class="hover:neon-blue transition">Services</a>
+    <a href="#portfolio" class="hover:neon-blue transition">Portfolio</a>
+    <a href="#about" class="hover:neon-blue transition">About</a>
+    <a href="#contact" class="hover:neon-blue transition">Contact</a>
+    <a href="#contact" class="btn-primary px-12 py-4 rounded-full text-xl font-bold">Let's Talk</a>
+  </div>
+
+  <!-- HERO -->
+  <section class="relative h-screen hero gradient-bg overflow-hidden">
+     <div class="relative w-full h-screen hero" style="margin-top: 10px;">
+      <spline-viewer
+        url="https://prod.spline.design/WNmhHpS4PLU16Rji/scene.splinecode"
+        class="w-full h-full hidden md:block"
+      ></spline-viewer>
+
+      <img
+        id="mobile-gif"
+        src="animation.gif"
+        alt="Animated GIF"
+        class="w-full h-full object-cover md:hidden"
+      />
+
+      <div class="absolute inset-0 pointer-events-none">
+  <div
+    class="container mx-auto h-full flex flex-col justify-end px-4 md:px-10 py-4 md:py-10 relative"
+  >
+    <div
+      class="flex flex-col md:flex-row justify-between items-start md:items-end relative"
+    >
+      <!-- LEFT TEXT -->
+      <div class="mb-8 md:mb-0 max-w-full md:max-w-[50%] glass-effect">
+        <h1
+          class="text-4xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-[5rem] font-['Sen',sans-serif] font-normal leading-none tracking-tighter mb-4"
+        >
+          Grow Your Brand.<br />Go Digital. <br /> Get Results.
+        </h1>
+        <p class="text-xs sm:text-sm md:text-base tracking-widest">
+          SOCIAL \ SEO \ ADS \ WEB \ VIDEO \ 3D
+        </p>
+      </div>
+
+      <!-- RIGHT TEXT -->
+      <div class="w-full md:w-auto md:text-left glass-effect">
+        <p
+          class="text-sm sm:text-base md:text-lg lg:text-xl mb-4 md:mb-8"
+        >
+          Your full-stack digital marketing partner in India.
+          <br class="hidden md:inline" />
+          Design to Make Brand Stand Out
+        </p>
+
+        <div
+          class="flex flex-col sm:flex-row md:flex-col lg:flex-row space-y-2 sm:space-y-0 sm:space-x-4 md:space-x-0 md:space-y-2 lg:space-y-0 lg:space-x-4 md:items-end"
+        >
+          <button
+            class="pointer-events-auto text-xs sm:text-sm md:text-base border border-white/50 rounded-full px-3 py-1 md:px-4 md:py-2 hover:bg-white/10 transition w-full sm:w-auto"
+          >
+            Request Free Consultation
+          </button>
+        </div>
+      </div>
+
+      <!-- ⭐ MASCOT ADDED HERE ⭐ -->
+          <img src="i.png" alt="Mascot" class="mascot absolute bottom-20 right-10 w-32 md:w-48 lg:w-64 select-none z-5 opacity-0" data-mascot>
+
+    </div>
+  </div>
+</div>
+
+    </div>
+  </section>
+
+  <!-- WHO WE ARE (Inspired by Image) -->
+  <section class="py-24 gradient-bg">
+    <div class="container mx-auto px-6">
+      <div class="text-center mb-20">
+        <h2 class="text-4xl md:text-6xl font-black mb-6 neon-blue glow-text">Who We Are</h2>
+        <p class="text-xl max-w-4xl mx-auto opacity-90">At Tripple One Media Works, we believe in one thing: your growth. We don't just run campaigns, we build meaningful brand-experiences that convert.</p>
+      </div>
+      <div class="grid lg:grid-cols-2 gap-12 items-center">
+        <div>
+          <img src="market.png" alt="Team Collaboration" class="rounded-3xl shadow-2xl w-full">
+        </div>
+        <div class="space-y-6">
+          <div class="glass p-6 rounded-2xl">
+            <h3 class="text-2xl font-bold mb-4 neon-purple">Our Core Philosophy: Think. Create. Amplify.</h3>
+          </div>
+          <div class="glass p-6 rounded-2xl">
+            <h4 class="font-semibold mb-2">Mission:</h4>
+            <p class="opacity-90">To deliver data-driven, ROI-focused digital strategies that turn ideas into powerful brand experiences.</p>
+          </div>
+          <div class="glass p-6 rounded-2xl">
+            <h4 class="font-semibold mb-2">Vision:</h4>
+            <p class="opacity-90">To be the Go-to Growth Partner for Brands looking to dominate their digital space.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SERVICES (Inspired by Image - Vertical Layout with Icons) -->
+  <section id="services" class="py-24 gradient-bg">
+    <div class="container mx-auto px-6 text-center">
+      <h2 class="text-4xl md:text-6xl font-black mb-16 neon-blue glow-text">Our Services</h2>
+      <p class="text-xl max-w-4xl mx-auto mb-16 opacity-90">What do we offer? We cover everything your brand needs to thrive in the digital age, under one roof.</p>
+      <div class="max-w-4xl mx-auto space-y-8">
+        <!-- Social Media Column -->
+        <div class="flex items-start space-x-8 glass p-8 rounded-3xl">
+          <div class="w-20 h-20 bg-neon-blue/10 rounded-2xl flex items-center justify-center flex-shrink-0">
+            <i class="ri-instagram-line text-3xl neon-blue"></i>
+          </div>
+          <div class="flex-1">
+            <h3 class="text-2xl font-bold mb-4 neon-purple">Social Media Marketing (SMM)</h3>
+            <ul class="space-y-2 text-left opacity-90">
+              <li>• Platform Strategy & Planning</li>
+              <li>• Monthly Content Calendars</li>
+              <li>• Post Designing & Captions</li>
+              <li>• Story, Reel & Short Video Ideas</li>
+              <li>• Engagement & Community Management</li>
+              <li>• Paid Social Ad Campaigns</li>
+              <li>• Analytics, Insights & Growth Reports</li>
+            </ul>
+          </div>
+        </div>
+        <!-- Graphic Design Column -->
+        <div class="flex items-start space-x-8 glass p-8 rounded-3xl">
+          <div class="w-20 h-20 bg-neon-purple/10 rounded-2xl flex items-center justify-center flex-shrink-0 mt-4">
+            <i class="ri-palette-line text-3xl neon-purple"></i>
+          </div>
+          <div class="flex-1">
+            <h3 class="text-2xl font-bold mb-4 neon-blue">Graphic Design & Branding</h3>
+            <ul class="space-y-2 text-left opacity-90">
+              <li>• Logo Design & Brand Identity Guidelines</li>
+              <li>• Branding Kits & Guidelines</li>
+              <li>• Brochures, Flyers & Posters</li>
+              <li>• Business Collaterals (Cards, Letterheads, Email Signatures)</li>
+              <li>• Social Media Templates</li>
+              <li>• Rebranding & Design Audits</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+      <a href="#contact" class="mt-16 inline-block btn-primary px-12 py-5 rounded-full text-xl font-bold">
+        Explore Our Services
+      </a>
+    </div>
+  </section>
+
+  <!-- WHY PARTNER (Card Grid) -->
+  <section class="py-24 gradient-bg">
+    <div class="container mx-auto px-6">
+      <h2 class="text-4xl md:text-6xl font-black text-center mb-20 neon-blue glow-text">Why Partner With Us?</h2>
+      <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+        <div class="glass p-8 rounded-2xl floating-card" data-delay="0.1s">
+          <span class="text-4xl font-black text-neon-blue/20 block mb-4">01</span>
+          <h3 class="text-xl font-bold mb-3 neon-purple">Tailored Strategies</h3>
+          <p class="opacity-80">Customized for your unique business needs, not off-the-shelf templates.</p>
+        </div>
+        <div class="glass p-8 rounded-2xl floating-card" data-delay="0.2s">
+          <span class="text-4xl font-black text-neon-blue/20 block mb-4">02</span>
+          <h3 class="text-xl font-bold mb-3 neon-purple">Multidisciplinary Team</h3>
+          <p class="opacity-80">Strategists, designers, analysts & technologists working in harmony.</p>
+        </div>
+        <div class="glass p-8 rounded-2xl floating-card" data-delay="0.3s">
+          <span class="text-4xl font-black text-neon-blue/20 block mb-4">03</span>
+          <h3 class="text-xl font-bold mb-3 neon-purple">Full Transparency</h3>
+          <p class="opacity-80">Clear reporting and measurable ROI every step of the way.</p>
+        </div>
+        <div class="glass p-8 rounded-2xl floating-card" data-delay="0.4s">
+          <span class="text-4xl font-black text-neon-blue/20 block mb-4">04</span>
+          <h3 class="text-xl font-bold mb-3 neon-purple">Deep Industry Experience</h3>
+          <p class="opacity-80">From real estate and education to e-commerce and startups.</p>
+        </div>
+        <div class="glass p-8 rounded-2xl floating-card" data-delay="0.5s">
+          <span class="text-4xl font-black text-neon-blue/20 block mb-4">05</span>
+          <h3 class="text-xl font-bold mb-3 neon-purple">End-to-End Services</h3>
+          <p class="opacity-80">From social media and SEO to video production and web development.</p>
+        </div>
+        <div class="glass p-8 rounded-2xl floating-card" data-delay="0.6s">
+          <span class="text-4xl font-black text-neon-blue/20 block mb-4">06</span>
+          <h3 class="text-xl font-bold mb-3 neon-purple">Long-Term Partnership</h3>
+          <p class="opacity-80">We're invested in your success beyond the first campaign.</p>
+        </div>
+      </div>
+      <div class="text-center mt-16">
+        <a href="#contact" class="btn-primary px-12 py-5 rounded-full text-xl font-bold">
+          Let’s Talk Strategy
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <div class="section-divider"></div>
+
+  <!-- PROCESS (Horizontal Steps) -->
+  <section class="py-24 gradient-bg">
+    <div class="container mx-auto px-6 text-center">
+      <h2 class="text-4xl md:text-6xl font-black mb-16 neon-blue glow-text">Our 5-Step Process to Success</h2>
+      <div class="flex flex-col md:flex-row justify-between items-stretch space-y-8 md:space-y-0 md:space-x-4 relative">
+        <div class="glass p-8 rounded-2xl flex-1 relative" data-step="1">
+          <span class="absolute -top-4 left-1/2 transform -translate-x-1/2 w-8 h-8 bg-neon-blue rounded-full flex items-center justify-center text-white font-bold text-sm">1</span>
+          <h3 class="text-xl font-bold mb-4 mt-6">Discover</h3>
+          <p class="opacity-80">We immerse in your brand, goals & audience.</p>
+        </div>
+        <div class="glass p-8 rounded-2xl flex-1 relative" data-step="2">
+          <span class="absolute -top-4 left-1/2 transform -translate-x-1/2 w-8 h-8 bg-neon-purple rounded-full flex items-center justify-center text-white font-bold text-sm">2</span>
+          <h3 class="text-xl font-bold mb-4 mt-6">Strategise</h3>
+          <p class="opacity-80">We craft a tailored roadmap for digital growth.</p>
+        </div>
+        <div class="glass p-8 rounded-2xl flex-1 relative" data-step="3">
+          <span class="absolute -top-4 left-1/2 transform -translate-x-1/2 w-8 h-8 bg-neon-blue rounded-full flex items-center justify-center text-white font-bold text-sm">3</span>
+          <h3 class="text-xl font-bold mb-4 mt-6">Create</h3>
+          <p class="opacity-80">We design the content, assets & user experience.</p>
+        </div>
+        <div class="glass p-8 rounded-2xl flex-1 relative" data-step="4">
+          <span class="absolute -top-4 left-1/2 transform -translate-x-1/2 w-8 h-8 bg-neon-purple rounded-full flex items-center justify-center text-white font-bold text-sm">4</span>
+          <h3 class="text-xl font-bold mb-4 mt-6">Execute</h3>
+          <p class="opacity-80">We run, monitor and optimise campaigns across channels.</p>
+        </div>
+        <div class="glass p-8 rounded-2xl flex-1 relative" data-step="5">
+          <span class="absolute -top-4 left-1/2 transform -translate-x-1/2 w-8 h-8 bg-neon-blue rounded-full flex items-center justify-center text-white font-bold text-sm">5</span>
+          <h3 class="text-xl font-bold mb-4 mt-6">Optimise & Scale</h3>
+          <p class="opacity-80">We analyse results, refine tactics, and help you grow further.</p>
+        </div>
+      </div>
+      <p class="text-center mt-12 text-lg opacity-90 italic">From strategy to execution, we keep you in the loop and focused on what matters - RESULTS!</p>
+      <a href="#contact" class="mt-16 inline-block btn-primary px-12 py-5 rounded-full text-xl font-bold">
+        Start Now
+      </a>
+    </div>
+  </section>
+
+  <div class="section-divider"></div>
+
+  <!-- PORTFOLIO & TESTIMONIALS -->
+  <section id="portfolio" class="py-24 gradient-bg">
+    <div class="container mx-auto px-6">
+      <h2 class="text-4xl md:text-6xl font-black text-center mb-16 neon-blue glow-text">Our Work in Action</h2>
+      <div class="glass p-12 rounded-3xl text-center mb-20">
+        <p class="text-2xl mb-10 opacity-90">See how we've helped brands like yours achieve real growth</p>
+        <div class="flex flex-wrap justify-center gap-12 mb-10 opacity-70">
+          <!-- Placeholder logos; replace with actual images -->
+          <img src="seo.png" alt="UrbanVista" class="h-10">
+          <img src="vid.png" alt="EduSphere" class="h-10">
+          <img src="code.png" alt="NourishBite" class="h-10">
+          <img src="ads.png" alt="Vistara" class="h-10">
+        </div>
+        <a href="#contact" class="btn-primary px-10 py-4 rounded-full text-lg font-semibold">
+          Browse Portfolio
+        </a>
+      </div>
+      <div class="grid md:grid-cols-2 gap-8 mb-16">
+        <div class="glass p-8 rounded-2xl">
+          <p class="text-lg italic mb-6 opacity-90">“Tripple One Media Works helped us double our qualified leads in just 3 months. Their ad targeting and content strategy were on point — exactly what our brand needed.”</p>
+          <p class="font-bold neon-blue">– Rohan Mehta, Founder, UrbanVista Realty Pvt. Ltd.</p>
+        </div>
+        <div class="glass p-8 rounded-2xl">
+          <p class="text-lg italic mb-6 opacity-90">“The team’s mix of creativity and analytical thinking really impressed us. From social campaigns to ad insights, they delivered beyond expectations.”</p>
+          <p class="font-bold neon-blue">– Priya Sharma, Marketing Director, EduSphere Learning</p>
+        </div>
+        <div class="glass p-8 rounded-2xl">
+          <p class="text-lg italic mb-6 opacity-90">“Their design and social media execution completely transformed our online presence. We started seeing genuine engagement and inquiries within weeks.”</p>
+          <p class="font-bold neon-blue">– Ankit Patel, Co-Founder, NourishBite Foods</p>
+        </div>
+        <div class="glass p-8 rounded-2xl">
+          <p class="text-lg italic mb-6 opacity-90">“Tripple One Media Works truly functions as an extension of our team. Their SEO and content marketing approach has significantly boosted our web traffic and brand visibility.”</p>
+          <p class="font-bold neon-blue">– Neha Kapoor, Head of Communications, Vistara BuildTech</p>
+        </div>
+      </div>
+      <div class="text-center">
+        <a href="#contact" class="btn-primary px-12 py-5 rounded-full text-xl font-bold">
+          Let’s Work Together
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- PACKAGES -->
+  <section class="py-24 gradient-bg">
+    <div class="container mx-auto px-6 text-center">
+      <h2 class="text-4xl md:text-6xl font-black mb-16 neon-blue glow-text">Flexible Engagement Models</h2>
+      <p class="text-xl max-w-3xl mx-auto mb-16 opacity-90">Whether you're a startup or an established enterprise, we offer scalable plans built around your goals.</p>
+      <div class="grid md:grid-cols-4 gap-8">
+        <div class="glass p-8 rounded-2xl border-2 border-neon-blue/30 hover:border-neon-blue transition">
+          <h3 class="text-2xl font-bold mb-4 neon-blue">Starter Pack</h3>
+          <p class="opacity-80 mb-4">Social setup + content + basic SEO</p>
+          <span class="text-sm opacity-60">Ideal for new brands</span>
+        </div>
+        <div class="glass p-8 rounded-2xl border-2 border-neon-purple/30 hover:border-neon-purple transition">
+          <h3 class="text-2xl font-bold mb-4 neon-purple">Growth Pack</h3>
+          <p class="opacity-80 mb-4">Full social + ads + content + email flows</p>
+          <span class="text-sm opacity-60">For scaling businesses</span>
+        </div>
+        <div class="glass p-8 rounded-2xl border-2 border-neon-blue/30 hover:border-neon-blue transition">
+          <h3 class="text-2xl font-bold mb-4 neon-blue">Enterprise Pack</h3>
+          <p class="opacity-80 mb-4">360° digital strategy + campaigns + dedicated team</p>
+          <span class="text-sm opacity-60">For large operations</span>
+        </div>
+        <div class="glass p-8 rounded-2xl border-2 border-neon-purple/30 hover:border-neon-purple transition">
+          <h3 class="text-2xl font-bold mb-4 neon-purple">Customised Pack</h3>
+          <p class="opacity-80 mb-4">Tailored package of services on demand</p>
+          <span class="text-sm opacity-60">Bespoke solutions</span>
+        </div>
+      </div>
+      <a href="#contact" class="mt-16 inline-block btn-primary px-12 py-5 rounded-full text-xl font-bold">
+        Get Pricing
+      </a>
+    </div>
+  </section>
+
+  <div class="section-divider"></div>
+
+  <!-- CONTACT FORM -->
+  <section id="contact" class="py-24 gradient-bg">
+    <div class="container mx-auto px-6 max-w-4xl">
+      <h2 class="text-4xl md:text-6xl font-black text-center mb-10 neon-blue glow-text">Ready to Amplify Your Digital Impact?</h2>
+      <p class="text-center text-xl mb-16 opacity-90">Let’s talk about how we can help your brand grow. Fill in the form or drop us a call and we’ll get back within 24 hrs.</p>
+      <form class="glass p-12 rounded-3xl space-y-6" action="https://formspree.io/f/your-id" method="POST">
+        <div class="grid md:grid-cols-2 gap-6">
+          <input type="text" name="name" placeholder="Name *" class="w-full bg-white/5 border border-neon-blue/30 rounded-xl px-6 py-4 focus:border-neon-blue focus:outline-none transition" required>
+          <input type="text" name="company" placeholder="Company Name" class="w-full bg-white/5 border border-neon-blue/30 rounded-xl px-6 py-4 focus:border-neon-blue focus:outline-none transition">
+          <input type="email" name="email" placeholder="Email *" class="w-full bg-white/5 border border-neon-blue/30 rounded-xl px-6 py-4 focus:border-neon-blue focus:outline-none transition" required>
+          <input type="tel" name="phone" placeholder="Phone *" class="w-full bg-white/5 border border-neon-blue/30 rounded-xl px-6 py-4 focus:border-neon-blue focus:outline-none transition" required>
+          <input type="tel" name="alt_phone" placeholder="Alternate Contact" class="w-full bg-white/5 border border-neon-blue/30 rounded-xl px-6 py-4 focus:border-neon-blue focus:outline-none transition">
+          <select name="services" class="w-full bg-white/5 border border-neon-blue/30 rounded-xl px-6 py-4 focus:border-neon-blue focus:outline-none transition">
+            <option value="">What services are you seeking?</option>
+            <option>Social Media Marketing</option>
+            <option>Performance Marketing</option>
+            <option>SEO & Web Optimisation</option>
+            <option>Graphic Design & Branding</option>
+            <option>Video Editing & Content Creation</option>
+            <option>Website Design & Development</option>
+            <option>Email Marketing & Lead Generation</option>
+            <option>3D Animation & VR Experiences</option>
+          </select>
+        </div>
+        <textarea name="message" rows="4" placeholder="Brief Message" class="w-full bg-white/5 border border-neon-blue/30 rounded-xl px-6 py-4 focus:border-neon-blue focus:outline-none transition"></textarea>
+        <div class="text-center">
+          <button type="submit" class="btn-primary px-16 py-5 rounded-full text-xl font-bold">
+            Send Message
+          </button>
+        </div>
+      </form>
+      <p class="text-center mt-10 text-sm opacity-70">We respect your privacy. We’ll never spam you.</p>
+      <p class="text-center mt-6 text-2xl">Prefer a call? <a href="tel:+918860810135" class="neon-blue font-bold hover:neon-purple transition">+91-8860810135</a></p>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="py-16 gradient-bg text-center border-t border-neon-blue/20">
+    <div class="container mx-auto px-6">
+      <div class="text-3xl font-bold neon-blue mb-8">Tripple One Media Works</div>
+      <div class="flex justify-center space-x-8 mb-8">
+        <a href="#" class="hover:neon-blue transition text-2xl"><i class="ri-instagram-line"></i></a>
+        <a href="#" class="hover:neon-purple transition text-2xl"><i class="ri-linkedin-box-line"></i></a>
+        <a href="#" class="hover:neon-blue transition text-2xl"><i class="ri-facebook-circle-line"></i></a>
+        <a href="#" class="hover:neon-purple transition text-2xl"><i class="ri-youtube-line"></i></a>
+      </div>
+      <nav class="flex justify-center space-x-8 mb-6 text-sm opacity-80">
+        <a href="#" class="hover:neon-blue transition">Home</a>
+        <a href="#services" class="hover:neon-blue transition">Services</a>
+        <a href="#portfolio" class="hover:neon-blue transition">Portfolio</a>
+        <a href="#about" class="hover:neon-blue transition">About Us</a>
+        <a href="#contact" class="hover:neon-blue transition">Contact</a>
+      </nav>
+      <p class="opacity-70 text-sm">© 2025 Tripple One Media Works | All Rights Reserved | <a href="#" class="hover:neon-blue">Privacy Policy</a></p>
+    </div>
+  </footer>
+
+  <!-- GSAP + SCRIPTS -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.7/gsap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.7/ScrollTrigger.min.js"></script>
+  <script>
+    gsap.registerPlugin(ScrollTrigger);
+
+    document.addEventListener("DOMContentLoaded", () => {
+      // Mobile Menu
+      const menuToggle = document.getElementById("menu-toggle");
+      const closeMenu = document.getElementById("close-menu");
+      const mobileMenu = document.getElementById("mobile-menu");
+      const splineViewer = document.querySelector("spline-viewer");
+      const mobileGif = document.getElementById("mobile-gif");
+
+      function handleResize() {
+        if (window.innerWidth < 1024) { // lg breakpoint
+          splineViewer.style.display = "none";
+          mobileGif.style.display = "block";
+        } else {
+          splineViewer.style.display = "block";
+          mobileGif.style.display = "none";
+        }
+        ScrollTrigger.refresh();
+      }
+      handleResize();
+      window.addEventListener("resize", handleResize);
+
+      menuToggle.addEventListener("click", () => mobileMenu.classList.toggle("hidden"));
+      closeMenu.addEventListener("click", () => mobileMenu.classList.add("hidden"));
+      document.addEventListener("click", (e) => {
+        if (!mobileMenu.contains(e.target) && e.target !== menuToggle) {
+          mobileMenu.classList.add("hidden");
+        }
+      });
+
+      // Spline Logo Removal (Your Original Logic)
+      function removeSplineLogo(node) {
+        try {
+          if (node instanceof Element) {
+            node.remove();
+            return;
+          }
+          const el = document.getElementById("logo") || document.querySelector('a[href*="spline.design"]');
+          if (el) el.remove();
+        } catch (e) {
+          const el = document.getElementById("logo") || document.querySelector('a[href*="spline.design"]');
+          if (el) {
+            el.style.display = "none";
+            el.style.visibility = "hidden";
+            el.style.pointerEvents = "none";
+          }
+        }
+      }
+      removeSplineLogo();
+      const logoObserver = new MutationObserver((mutations) => {
+        for (const m of mutations) {
+          for (const node of m.addedNodes) {
+            if (node instanceof Element && (node.id === "logo" || node.matches?.('a[href*="spline.design"]'))) {
+              removeSplineLogo(node);
+            } else if (node.querySelector) {
+              const found = node.querySelector('#logo') || node.querySelector('a[href*="spline.design"]');
+              if (found) removeSplineLogo(found);
+            }
+          }
+        }
+      });
+      logoObserver.observe(document.body, { childList: true, subtree: true });
+      setTimeout(() => logoObserver.disconnect(), 8000);
+
+      // Hero Fade-In Animations
+      gsap.from("[data-animate]", {
+        y: 50,
+        opacity: 0,
+        duration: 1,
+        stagger: 0.2,
+        ease: "power3.out",
+        scrollTrigger: {
+          trigger: ".hero",
+          start: "top 80%",
+          toggleActions: "play none none reverse"
+        }
+      });
+
+      // Mascot Scroll Animation (Fixed & Enhanced)
+      const mascot = document.querySelector("[data-mascot]");
+      if (mascot) {
+        gsap.set(mascot, { opacity: 1, y: 0, rotation: 0 });
+        gsap.to(mascot, {
+          y: window.innerHeight * 2,
+          rotation: 20,
+          scale: 1.2,
+          ease: "none",
+          scrollTrigger: {
+            trigger: "body",
+            start: "top top",
+            end: "bottom bottom",
+            scrub: 2
+          }
+        });
+      }
+
+      // Floating Cards
+      gsap.utils.toArray(".floating-card").forEach((card, i) => {
+        gsap.to(card, {
+          y: -20,
+          duration: 3 + i * 0.5,
+          ease: "power2.inOut",
+          repeat: -1,
+          yoyo: true
+        });
+      });
+
+      // Step Line Connector (for Process Section)
+      const steps = gsap.utils.toArray("[data-step]");
+      if (steps.length > 1) {
+        gsap.set(steps.slice(1), { scaleX: 0 });
+        gsap.to(steps.slice(1), {
+          scaleX: 1,
+          duration: 1,
+          stagger: 0.2,
+          scrollTrigger: {
+            trigger: steps[0],
+            start: "top 80%",
+            toggleActions: "play none none reverse"
+          }
+        });
+      }
+
+      // Parallax for Images
+      gsap.utils.toArray("img").forEach(img => {
+        gsap.to(img, {
+          yPercent: -20,
+          ease: "none",
+          scrollTrigger: {
+            trigger: img,
+            start: "top bottom",
+            end: "bottom top",
+            scrub: true
+          }
+        });
+      });
+    });
+  </script>
+</body>
+</html>
